@@ -43,326 +43,328 @@ int main(void)
 
 	// Our vertices. Tree consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
 	// A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
-	GLfloat* vertex = drawCircle(0.0f, 0.0f, 0.0f, 2.0f, 360);
+	int sides = 100;
+	GLfloat* vertex = drawCircle(0.0f, 0.0f, 0.0f, 1.0f, sides);
 
 	// for (int i = 0; i < 360; i++) {
 	// 	printf("%f \n", vertex[i]);
 	// }
-	// {
-	// 	//front bottom
-	// 	-1.0f,-0.8, 1.0f,
-	// 	-1.0f,-0.8, 2.0f,
-	// 	-1.0f, -0.25f, 2.0f,
-	// 	1.0f, -0.25f, 1.0f,
-	// 	-1.0f,-0.8, 1.0f,
-	// 	-1.0f, -0.25f, 1.0f,
+	GLfloat _vertex[]={
+		//front bottom
+		-1.0f,-0.8, 1.0f,
+		-1.0f,-0.8, 2.0f,
+		-1.0f, -0.25f, 2.0f,
+		1.0f, -0.25f, 1.0f,
+		-1.0f,-0.8, 1.0f,
+		-1.0f, -0.25f, 1.0f,
 
-	// 	1.0f,-0.8, 2.0f,
-	// 	-1.0f,-0.8, 1.0f,
-	// 	1.0f,-0.8, 1.0f,
-	// 	1.0f, -0.25f, 1.0f,
-	// 	1.0f,-0.8, 1.0f,
-	// 	-1.0f,-0.8, 1.0f,
+		1.0f,-0.8, 2.0f,
+		-1.0f,-0.8, 1.0f,
+		1.0f,-0.8, 1.0f,
+		1.0f, -0.25f, 1.0f,
+		1.0f,-0.8, 1.0f,
+		-1.0f,-0.8, 1.0f,
 
-	// 	-1.0f,-0.8, 1.0f,
-	// 	-1.0f, -0.25f, 2.0f,
-	// 	-1.0f, -0.25f, 1.0f,
-	// 	1.0f,-0.8, 2.0f,
-	// 	-1.0f,-0.8, 2.0f,
-	// 	-1.0f,-0.8, 1.0f,
+		-1.0f,-0.8, 1.0f,
+		-1.0f, -0.25f, 2.0f,
+		-1.0f, -0.25f, 1.0f,
+		1.0f,-0.8, 2.0f,
+		-1.0f,-0.8, 2.0f,
+		-1.0f,-0.8, 1.0f,
 
-	// 	-1.0f,-0.25f, 2.0f,
-	// 	-1.0f,-0.8, 2.0f,
-	// 	1.0f,-0.8, 2.0f,
-	// 	1.0f, -0.25f, 2.0f,
-	// 	1.0f,-0.8, 1.0f,
-	// 	1.0f, -0.25f, 1.0f,
+		-1.0f,-0.25f, 2.0f,
+		-1.0f,-0.8, 2.0f,
+		1.0f,-0.8, 2.0f,
+		1.0f, -0.25f, 2.0f,
+		1.0f,-0.8, 1.0f,
+		1.0f, -0.25f, 1.0f,
 
-	// 	1.0f,-0.8, 1.0f,
-	// 	1.0f, -0.25f, 2.0f,
-	// 	1.0f,-0.8, 2.0f,
-	// 	1.0f, -0.25f, 2.0f,
-	// 	1.0f, -0.25f, 1.0f,
-	// 	-1.0f, -0.25f, 1.0f,
+		1.0f,-0.8, 1.0f,
+		1.0f, -0.25f, 2.0f,
+		1.0f,-0.8, 2.0f,
+		1.0f, -0.25f, 2.0f,
+		1.0f, -0.25f, 1.0f,
+		-1.0f, -0.25f, 1.0f,
 
-	// 	1.0f, -0.25f, 2.0f,
-	// 	-1.0f, -0.25f, 1.0f,
-	// 	-1.0f, -0.25f, 2.0f,
-	// 	1.0f, -0.25f, 2.0f,
-	// 	-1.0f, -0.25f, 2.0f,
-	// 	1.0f,-0.8, 2.0f,
+		1.0f, -0.25f, 2.0f,
+		-1.0f, -0.25f, 1.0f,
+		-1.0f, -0.25f, 2.0f,
+		1.0f, -0.25f, 2.0f,
+		-1.0f, -0.25f, 2.0f,
+		1.0f,-0.8, 2.0f,
 
-	// 	//front upper 1
-	// 	-1.0f, -0.25f, 1.0f,
-	// 	-1.0f, -0.25f, 2.0f,
-	// 	-1.0f, -0.25f, 2.0f,
-	// 	1.0f, 0, 1.0f,
-	// 	-1.0f, -0.25f, 1.0f,
-	// 	-1.0f, 0, 1.0f,
+		//front upper 1
+		-1.0f, -0.25f, 1.0f,
+		-1.0f, -0.25f, 2.0f,
+		-1.0f, -0.25f, 2.0f,
+		1.0f, 0, 1.0f,
+		-1.0f, -0.25f, 1.0f,
+		-1.0f, 0, 1.0f,
 
-	// 	1.0f, -0.25f, 2.0f,
-	// 	-1.0f, -0.25f, 1.0f,
-	// 	1.0f, -0.25f, 1.0f,
-	// 	1.0f, 0, 1.0f,
-	// 	1.0f, -0.25f, 1.0f,
-	// 	-1.0f, -0.25f, 1.0f,
+		1.0f, -0.25f, 2.0f,
+		-1.0f, -0.25f, 1.0f,
+		1.0f, -0.25f, 1.0f,
+		1.0f, 0, 1.0f,
+		1.0f, -0.25f, 1.0f,
+		-1.0f, -0.25f, 1.0f,
 
-	// 	-1.0f, -0.25f, 1.0f,
-	// 	-1.0f, -0.25f, 2.0f,
-	// 	-1.0f, 0, 1.0f,
-	// 	1.0f, -0.25f, 2.0f,
-	// 	-1.0f, -0.25f, 2.0f,
-	// 	-1.0f, -0.25f, 1.0f,
+		-1.0f, -0.25f, 1.0f,
+		-1.0f, -0.25f, 2.0f,
+		-1.0f, 0, 1.0f,
+		1.0f, -0.25f, 2.0f,
+		-1.0f, -0.25f, 2.0f,
+		-1.0f, -0.25f, 1.0f,
 
-	// 	-1.0f,-0.25f, 2.0f,
-	// 	-1.0f, -0.25f, 2.0f,
-	// 	1.0f, -0.25f, 2.0f,
-	// 	1.0f, -0.25f, 2.0f,
-	// 	1.0f, -0.25f, 1.0f,
-	// 	1.0f, 0, 1.0f,
+		-1.0f,-0.25f, 2.0f,
+		-1.0f, -0.25f, 2.0f,
+		1.0f, -0.25f, 2.0f,
+		1.0f, -0.25f, 2.0f,
+		1.0f, -0.25f, 1.0f,
+		1.0f, 0, 1.0f,
 
-	// 	1.0f, -0.25f, 1.0f,
-	// 	1.0f, -0.25f, 2.0f,
-	// 	1.0f, -0.25f, 2.0f,
-	// 	1.0f, -0.25f, 2.0f,
-	// 	1.0f, 0, 1.0f,
-	// 	-1.0f, 0, 1.0f,
+		1.0f, -0.25f, 1.0f,
+		1.0f, -0.25f, 2.0f,
+		1.0f, -0.25f, 2.0f,
+		1.0f, -0.25f, 2.0f,
+		1.0f, 0, 1.0f,
+		-1.0f, 0, 1.0f,
 
-	// 	1.0f, -0.25f, 2.0f,
-	// 	-1.0f, 0, 1.0f,
-	// 	-1.0f, -0.25f, 2.0f,
-	// 	1.0f, -0.25f, 2.0f,
-	// 	-1.0f, -0.25f, 2.0f,
-	// 	1.0f, -0.25f, 2.0f,
+		1.0f, -0.25f, 2.0f,
+		-1.0f, 0, 1.0f,
+		-1.0f, -0.25f, 2.0f,
+		1.0f, -0.25f, 2.0f,
+		-1.0f, -0.25f, 2.0f,
+		1.0f, -0.25f, 2.0f,
 
-	// 	//front bottom 2
-	// 	-1.0f,-0.8, 0.6f,
-	// 	-1.0f,-0.8, 1.0f,
-	// 	-1.0f, 0, 1.0f,
-	// 	1.0f, 0, 0.6f,
-	// 	-1.0f,-0.8, 0.6f,
-	// 	-1.0f, 0, 0.6f,
+		//front bottom 2
+		-1.0f,-0.8, 0.6f,
+		-1.0f,-0.8, 1.0f,
+		-1.0f, 0, 1.0f,
+		1.0f, 0, 0.6f,
+		-1.0f,-0.8, 0.6f,
+		-1.0f, 0, 0.6f,
 
-	// 	1.0f,-0.8, 1.0f,
-	// 	-1.0f,-0.8, 0.6f,
-	// 	1.0f,-0.8, 0.6f,
-	// 	1.0f, 0, 0.6f,
-	// 	1.0f,-0.8, 0.6f,
-	// 	-1.0f,-0.8, 0.6f,
+		1.0f,-0.8, 1.0f,
+		-1.0f,-0.8, 0.6f,
+		1.0f,-0.8, 0.6f,
+		1.0f, 0, 0.6f,
+		1.0f,-0.8, 0.6f,
+		-1.0f,-0.8, 0.6f,
 
-	// 	-1.0f,-0.8, 0.6f,
-	// 	-1.0f, 0, 1.0f,
-	// 	-1.0f, 0, 0.6f,
-	// 	1.0f,-0.8, 1.0f,
-	// 	-1.0f,-0.8, 1.0f,
-	// 	-1.0f,-0.8, 0.6f,
+		-1.0f,-0.8, 0.6f,
+		-1.0f, 0, 1.0f,
+		-1.0f, 0, 0.6f,
+		1.0f,-0.8, 1.0f,
+		-1.0f,-0.8, 1.0f,
+		-1.0f,-0.8, 0.6f,
 
-	// 	-1.0f,0, 1.0f,
-	// 	-1.0f,-0.8, 1.0f,
-	// 	1.0f,-0.8, 1.0f,
-	// 	1.0f, 0, 1.0f,
-	// 	1.0f,-0.8, 0.6f,
-	// 	1.0f, 0, 0.6f,
+		-1.0f,0, 1.0f,
+		-1.0f,-0.8, 1.0f,
+		1.0f,-0.8, 1.0f,
+		1.0f, 0, 1.0f,
+		1.0f,-0.8, 0.6f,
+		1.0f, 0, 0.6f,
 
-	// 	1.0f,-0.8, 0.6f,
-	// 	1.0f, 0, 1.0f,
-	// 	1.0f,-0.8, 1.0f,
-	// 	1.0f, 0, 1.0f,
-	// 	1.0f, 0, 0.6f,
-	// 	-1.0f, 0, 0.6f,
+		1.0f,-0.8, 0.6f,
+		1.0f, 0, 1.0f,
+		1.0f,-0.8, 1.0f,
+		1.0f, 0, 1.0f,
+		1.0f, 0, 0.6f,
+		-1.0f, 0, 0.6f,
 
-	// 	1.0f, 0, 1.0f,
-	// 	-1.0f, 0, 0.6f,
-	// 	-1.0f, 0, 1.0f,
-	// 	1.0f, 0, 1.0f,
-	// 	-1.0f, 0, 1.0f,
-	// 	1.0f,-0.8, 1.0f,
+		1.0f, 0, 1.0f,
+		-1.0f, 0, 0.6f,
+		-1.0f, 0, 1.0f,
+		1.0f, 0, 1.0f,
+		-1.0f, 0, 1.0f,
+		1.0f,-0.8, 1.0f,
 
-	// 	//front upper
-	// 	-1.0f, 0, 0.6f,
-	// 	-1.0f, 0, 1.0f,
-	// 	-1.0f, 0.7f, 0.6f,
-	// 	1.0f, 0.7f, 0.6f,
-	// 	-1.0f, 0, 0.6f,
-	// 	-1.0f, 0.7f, 0.6f,
+		//front upper
+		-1.0f, 0, 0.6f,
+		-1.0f, 0, 1.0f,
+		-1.0f, 0.7f, 0.6f,
+		1.0f, 0.7f, 0.6f,
+		-1.0f, 0, 0.6f,
+		-1.0f, 0.7f, 0.6f,
 
-	// 	1.0f, 0, 1.0f,
-	// 	-1.0f, 0, 0.6f,
-	// 	1.0f, 0, 0.6f,
-	// 	1.0f, 0.7f, 0.6f,
-	// 	1.0f, 0, 0.6f,
-	// 	-1.0f, 0, 0.6f,
+		1.0f, 0, 1.0f,
+		-1.0f, 0, 0.6f,
+		1.0f, 0, 0.6f,
+		1.0f, 0.7f, 0.6f,
+		1.0f, 0, 0.6f,
+		-1.0f, 0, 0.6f,
 
-	// 	-1.0f, 0, 0.6f,
-	// 	-1.0f, 0.7f, 0.6f,
-	// 	-1.0f, 0.7f, 0.6f,
-	// 	1.0f, 0, 1.0f,
-	// 	-1.0f, 0, 1.0f,
-	// 	-1.0f, 0, 0.6f,
+		-1.0f, 0, 0.6f,
+		-1.0f, 0.7f, 0.6f,
+		-1.0f, 0.7f, 0.6f,
+		1.0f, 0, 1.0f,
+		-1.0f, 0, 1.0f,
+		-1.0f, 0, 0.6f,
 
-	// 	-1.0f,0.7f, 0.6f,
-	// 	-1.0f, 0, 1.0f,
-	// 	1.0f, 0, 1.0f,
-	// 	1.0f, 0.7f, 0.6f,
-	// 	1.0f, 0, 0.6f,
-	// 	1.0f, 0.7f, 0.6f,
+		-1.0f,0.7f, 0.6f,
+		-1.0f, 0, 1.0f,
+		1.0f, 0, 1.0f,
+		1.0f, 0.7f, 0.6f,
+		1.0f, 0, 0.6f,
+		1.0f, 0.7f, 0.6f,
 
-	// 	1.0f, 0, 0.6f,
-	// 	1.0f, 0.7f, 0.6f,
-	// 	1.0f, 0, 1.0f,
-	// 	1.0f, 0.7f, 0.6f,
-	// 	1.0f, 0.7f, 0.6f,
-	// 	-1.0f, 0.7f, 0.6f,
+		1.0f, 0, 0.6f,
+		1.0f, 0.7f, 0.6f,
+		1.0f, 0, 1.0f,
+		1.0f, 0.7f, 0.6f,
+		1.0f, 0.7f, 0.6f,
+		-1.0f, 0.7f, 0.6f,
 
-	// 	1.0f, 0.7f, 0.6f,
-	// 	-1.0f, 0.7f, 0.6f,
-	// 	-1.0f, 0.7f, 0.6f,
-	// 	1.0f, 0.7f, 0.6f,
-	// 	-1.0f, 0.7f, 0.6f,
-	// 	1.0f, 0, 1.0f,
+		1.0f, 0.7f, 0.6f,
+		-1.0f, 0.7f, 0.6f,
+		-1.0f, 0.7f, 0.6f,
+		1.0f, 0.7f, 0.6f,
+		-1.0f, 0.7f, 0.6f,
+		1.0f, 0, 1.0f,
 
-	// 	//mid
-	// 	-1.0f,-1.0f,-1.5f,
-	// 	-1.0f,-1.0f, 0.6f,
-	// 	-1.0f, 0.7f, 0.6f,
-	// 	1.0f, 0.7f,-1.5f,
-	// 	-1.0f,-1.0f,-1.5f,
-	// 	-1.0f, 0.7f,-1.5f,
+		//mid
+		-1.0f,-1.0f,-1.5f,
+		-1.0f,-1.0f, 0.6f,
+		-1.0f, 0.7f, 0.6f,
+		1.0f, 0.7f,-1.5f,
+		-1.0f,-1.0f,-1.5f,
+		-1.0f, 0.7f,-1.5f,
 
-	// 	1.0f,-1.0f, 0.6f,
-	// 	-1.0f,-1.0f,-1.5f,
-	// 	1.0f,-1.0f,-1.5f,
-	// 	1.0f, 0.7f,-1.5f,
-	// 	1.0f,-1.0f,-1.5f,
-	// 	-1.0f,-1.0f,-1.5f,
+		1.0f,-1.0f, 0.6f,
+		-1.0f,-1.0f,-1.5f,
+		1.0f,-1.0f,-1.5f,
+		1.0f, 0.7f,-1.5f,
+		1.0f,-1.0f,-1.5f,
+		-1.0f,-1.0f,-1.5f,
 
-	// 	-1.0f,-1.0f,-1.5f,
-	// 	-1.0f, 0.7f, 0.6f,
-	// 	-1.0f, 0.7f,-1.5f,
-	// 	1.0f,-1.0f, 0.6f,
-	// 	-1.0f,-1.0f, 0.6f,
-	// 	-1.0f,-1.0f,-1.5f,
+		-1.0f,-1.0f,-1.5f,
+		-1.0f, 0.7f, 0.6f,
+		-1.0f, 0.7f,-1.5f,
+		1.0f,-1.0f, 0.6f,
+		-1.0f,-1.0f, 0.6f,
+		-1.0f,-1.0f,-1.5f,
 
-	// 	-1.0f, 0.7f, 0.6f,
-	// 	-1.0f,-1.0f, 0.6f,
-	// 	1.0f,-1.0f, 0.6f,
-	// 	1.0f, 0.7f, 0.6f,
-	// 	1.0f,-1.0f,-1.5f,
-	// 	1.0f, 0.7f,-1.5f,
+		-1.0f, 0.7f, 0.6f,
+		-1.0f,-1.0f, 0.6f,
+		1.0f,-1.0f, 0.6f,
+		1.0f, 0.7f, 0.6f,
+		1.0f,-1.0f,-1.5f,
+		1.0f, 0.7f,-1.5f,
 
-	// 	1.0f,-1.0f,-1.5f,
-	// 	1.0f, 0.7f, 0.6f,
-	// 	1.0f,-1.0f, 0.6f,
-	// 	1.0f, 0.7f, 0.6f,
-	// 	1.0f, 0.7f,-1.5f,
-	// 	-1.0f, 0.7f,-1.5f,
+		1.0f,-1.0f,-1.5f,
+		1.0f, 0.7f, 0.6f,
+		1.0f,-1.0f, 0.6f,
+		1.0f, 0.7f, 0.6f,
+		1.0f, 0.7f,-1.5f,
+		-1.0f, 0.7f,-1.5f,
 
-	// 	1.0f, 0.7f, 0.6f,
-	// 	-1.0f, 0.7f,-1.5f,
-	// 	-1.0f, 0.7f, 0.6f,
-	// 	1.0f, 0.7f, 0.6f,
-	// 	-1.0f, 0.7f, 0.6f,
-	// 	1.0f,-1.0f, 0.6f,
+		1.0f, 0.7f, 0.6f,
+		-1.0f, 0.7f,-1.5f,
+		-1.0f, 0.7f, 0.6f,
+		1.0f, 0.7f, 0.6f,
+		-1.0f, 0.7f, 0.6f,
+		1.0f,-1.0f, 0.6f,
 
-	// 	//back upper
-	// 	-1.0f, 0,-2.0f,
-	// 	-1.0f, 0, -1.5f,
-	// 	-1.0f, 0.7f, -1.5f,
-	// 	1.0f, 0.7f, -1.5f,
-	// 	-1.0f, 0,-2.0f,
-	// 	-1.0f, 0.7f, -1.5f,
+		//back upper
+		-1.0f, 0,-2.0f,
+		-1.0f, 0, -1.5f,
+		-1.0f, 0.7f, -1.5f,
+		1.0f, 0.7f, -1.5f,
+		-1.0f, 0,-2.0f,
+		-1.0f, 0.7f, -1.5f,
 
-	// 	1.0f, 0, -1.5f,
-	// 	-1.0f, 0,-2.0f,
-	// 	1.0f, 0,-2.0f,
-	// 	1.0f, 0.7f, -1.5f,
-	// 	1.0f, 0,-2.0f,
-	// 	-1.0f, 0,-2.0f,
+		1.0f, 0, -1.5f,
+		-1.0f, 0,-2.0f,
+		1.0f, 0,-2.0f,
+		1.0f, 0.7f, -1.5f,
+		1.0f, 0,-2.0f,
+		-1.0f, 0,-2.0f,
 
-	// 	-1.0f, 0,-2.0f,
-	// 	-1.0f, 0.7f, -1.5f,
-	// 	-1.0f, 0.7f, -1.5f,
-	// 	1.0f, 0, -1.5f,
-	// 	-1.0f, 0, -1.5f,
-	// 	-1.0f, 0,-2.0f,
+		-1.0f, 0,-2.0f,
+		-1.0f, 0.7f, -1.5f,
+		-1.0f, 0.7f, -1.5f,
+		1.0f, 0, -1.5f,
+		-1.0f, 0, -1.5f,
+		-1.0f, 0,-2.0f,
 
-	// 	-1.0f, 0.7f, -1.5f,
-	// 	-1.0f, 0, -1.5f,
-	// 	1.0f, 0, -1.5f,
-	// 	1.0f, 0.7f, -1.5f,
-	// 	1.0f, 0,-2.0f,
-	// 	1.0f, 0.7f, -1.5f,
+		-1.0f, 0.7f, -1.5f,
+		-1.0f, 0, -1.5f,
+		1.0f, 0, -1.5f,
+		1.0f, 0.7f, -1.5f,
+		1.0f, 0,-2.0f,
+		1.0f, 0.7f, -1.5f,
 
-	// 	1.0f, 0,-2.0f,
-	// 	1.0f, 0.7f, -1.5f,
-	// 	1.0f, 0, -1.5f,
-	// 	1.0f, 0.7f, -1.5f,
-	// 	1.0f, 0.7f, -1.5f,
-	// 	-1.0f, 0.7f, -1.5f,
+		1.0f, 0,-2.0f,
+		1.0f, 0.7f, -1.5f,
+		1.0f, 0, -1.5f,
+		1.0f, 0.7f, -1.5f,
+		1.0f, 0.7f, -1.5f,
+		-1.0f, 0.7f, -1.5f,
 
-	// 	1.0f, 0.7f, -1.5f,
-	// 	-1.0f, 0.7f, -1.5f,
-	// 	-1.0f, 0.7f, -1.5f,
-	// 	1.0f, 0.7f, -1.5f,
-	// 	-1.0f, 0.7f, -1.5f,
-	// 	1.0f, 0, -1.5f,
+		1.0f, 0.7f, -1.5f,
+		-1.0f, 0.7f, -1.5f,
+		-1.0f, 0.7f, -1.5f,
+		1.0f, 0.7f, -1.5f,
+		-1.0f, 0.7f, -1.5f,
+		1.0f, 0, -1.5f,
 
-	// 	//back bottom
-	// 	-1.0f,-1.0f,-2.0f,
-	// 	-1.0f,-1.0f, -1.5f,
-	// 	-1.0f, 0, -1.5f,
-	// 	1.0f, 0,-2.0f,
-	// 	-1.0f,-1.0f,-2.0f,
-	// 	-1.0f, 0,-2.0f,
+		//back bottom
+		-1.0f,-1.0f,-2.0f,
+		-1.0f,-1.0f, -1.5f,
+		-1.0f, 0, -1.5f,
+		1.0f, 0,-2.0f,
+		-1.0f,-1.0f,-2.0f,
+		-1.0f, 0,-2.0f,
 
-	// 	1.0f,-1.0f, -1.5f,
-	// 	-1.0f,-1.0f,-2.0f,
-	// 	1.0f,-1.0f,-2.0f,
-	// 	1.0f, 0,-2.0f,
-	// 	1.0f,-1.0f,-2.0f,
-	// 	-1.0f,-1.0f,-2.0f,
+		1.0f,-1.0f, -1.5f,
+		-1.0f,-1.0f,-2.0f,
+		1.0f,-1.0f,-2.0f,
+		1.0f, 0,-2.0f,
+		1.0f,-1.0f,-2.0f,
+		-1.0f,-1.0f,-2.0f,
 
-	// 	-1.0f,-1.0f,-2.0f,
-	// 	-1.0f, 0, -1.5f,
-	// 	-1.0f, 0,-2.0f,
-	// 	1.0f,-1.0f, -1.5f,
-	// 	-1.0f,-1.0f, -1.5f,
-	// 	-1.0f,-1.0f,-2.0f,
+		-1.0f,-1.0f,-2.0f,
+		-1.0f, 0, -1.5f,
+		-1.0f, 0,-2.0f,
+		1.0f,-1.0f, -1.5f,
+		-1.0f,-1.0f, -1.5f,
+		-1.0f,-1.0f,-2.0f,
 
-	// 	-1.0f,0, -1.5f,
-	// 	-1.0f,-1.0f, -1.5f,
-	// 	1.0f,-1.0f, -1.5f,
-	// 	1.0f, 0, -1.5f,
-	// 	1.0f,-1.0f,-2.0f,
-	// 	1.0f, 0,-2.0f,
+		-1.0f,0, -1.5f,
+		-1.0f,-1.0f, -1.5f,
+		1.0f,-1.0f, -1.5f,
+		1.0f, 0, -1.5f,
+		1.0f,-1.0f,-2.0f,
+		1.0f, 0,-2.0f,
 
-	// 	1.0f,-1.0f,-2.0f,
-	// 	1.0f, 0, -1.5f,
-	// 	1.0f,-1.0f, -1.5f,
-	// 	1.0f, 0, -1.5f,
-	// 	1.0f, 0,-2.0f,
-	// 	-1.0f, 0,-2.0f,
+		1.0f,-1.0f,-2.0f,
+		1.0f, 0, -1.5f,
+		1.0f,-1.0f, -1.5f,
+		1.0f, 0, -1.5f,
+		1.0f, 0,-2.0f,
+		-1.0f, 0,-2.0f,
 
-	// 	1.0f, 0, -1.5f,
-	// 	-1.0f, 0,-2.0f,
-	// 	-1.0f, 0, -1.5f,
-	// 	1.0f, 0, -1.5f,
-	// 	-1.0f, 0, -1.5f,
-	// 	1.0f,-1.0f, -1.5f,
+		1.0f, 0, -1.5f,
+		-1.0f, 0,-2.0f,
+		-1.0f, 0, -1.5f,
+		1.0f, 0, -1.5f,
+		-1.0f, 0, -1.5f,
+		1.0f,-1.0f, -1.5f,
 
-	// 	//tes
-	// 	2.0f,0.0f,1.0f,
-	// 	2.0f,0.0f,0.0f,
-	// 	2.0f,0.7f,1.0f,
-	// 	2.0f,0.7f,0.0f,
-	// 	2.0f,0.7f,1.0f,
-	// 	2.0f,0.0f,0.0f,
-	// };
+		//tes
+		2.0f,0.0f,1.0f,
+		2.0f,0.0f,0.0f,
+		2.0f,0.7f,1.0f,
+		2.0f,0.7f,0.0f,
+		2.0f,0.7f,1.0f,
+		2.0f,0.0f,0.0f,
+	};
 
 	// GLfloat* trybro = drawCircle(2.0f, 0.0f, 0.0f, 2.0f, 360);
-	for (int i = 0; i < 362 * 3; i++) {
-		printf("[%d], %f\n", i, vertex[i]);
-	}
+	// for (int i = 0; i < sides * 9; i++) {
+	// 	printf("[%d]. %f\n", i, vertex[i]);
+	// }
+
 	GLfloat color[] = {
 		// front
 		0.9, 0.11, 0.11,
@@ -497,12 +499,14 @@ int main(void)
 	GLuint vertexbuffer;
 	glGenBuffers(1, &vertexbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * (sides + 2) * 9, vertex, GL_STATIC_DRAW);
 
 	GLuint vertexbuffercolor;
 	glGenBuffers(1, &vertexbuffercolor);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffercolor);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(color), color, GL_STATIC_DRAW);
+
+	//glTranslatef(0,0,2);
 
 	do {
 
@@ -534,7 +538,7 @@ int main(void)
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
 		// Draw the triangle !
-		glDrawArrays(GL_TRIANGLES, 0, 60 * 2 * 3); // 6 faces, 2 trianges, 3 vertices, start from 0
+		glDrawArrays(GL_TRIANGLES, 0, (sides + 2) * 9); // 6 faces, 2 trianges, 3 vertices, start from 0
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
@@ -607,78 +611,59 @@ GLfloat* drawCircle( GLfloat x, GLfloat y, GLfloat z, GLfloat radius, GLint numb
     
     GLfloat twicePi = 2.0f * M_PI;
     
-    GLfloat circleVerticesX[numberOfVertices];
-    GLfloat circleVerticesY[numberOfVertices];
-    GLfloat circleVerticesZ[numberOfVertices];
+    GLfloat circleVerticesX[numberOfSides+1];
+    GLfloat circleVerticesY[numberOfSides+1];
+    GLfloat circleVerticesZ[numberOfSides+1];
     
     GLfloat tempX, tempY, tempZ;
     circleVerticesX[0] = x;
     circleVerticesY[0] = y;
     circleVerticesZ[0] = z;
     
-    printf("YOI\n");
-    for (long int i = 1; i < numberOfVertices; i++ )
+    for (long int i = 1; i <= numberOfVertices; i++ )
     {
-    	printf("YOI 1 %ld\n", i);
-        // if (i % 3 == 0) {
-        // 	circleVerticesX[i] = x;
-        // 	circleVerticesY[i] = y;
-        // 	circleVerticesZ[i] = z;
-        
-    		// if (i % 3 == 0) {
-	     //    	circleVerticesX[i] = x;
-	     //    	circleVerticesY[i] = y;
-	     //    	circleVerticesZ[i] = z;
-	     //    	i++;
-	     //    }
-        	
-      //   	tempX = x + ( radius * cos( i *  twicePi / numberOfSides ) );
-		    // tempY = y + ( radius * sin( i * twicePi / numberOfSides ) );
-        	
-      //   	if (i != 1 && i != numberOfVertices - 1) {
-		    //     circleVerticesX[i] = tempX;
-		    //     circleVerticesY[i] = tempY;
-		    //     circleVerticesZ[i] = z;
-		    //     i++;	
-      //   	}
-        	
-	     //    // if (i != 1 && i != numberOfVertices - 1) {
-		    //     circleVerticesX[i] = tempX;
-		    //     circleVerticesY[i] = tempY;
-		    //     circleVerticesZ[i] = z;	
-	     //    // }
-
     	circleVerticesX[i] = x + ( radius * cos( i *  twicePi / numberOfSides ) );
         circleVerticesY[i] = y + ( radius * sin( i * twicePi / numberOfSides ) );
         circleVerticesZ[i] = z;
-        
+        printf("Circle Vertice %d X: %f\n", i, circleVerticesX[i]);
+        printf("Circle Vertice %d Y: %f\n", i, circleVerticesY[i]);
+        printf("Circle Vertice %d Z: %f\n", i, circleVerticesZ[i]);
     }
+
+    // printf("TESTES\n");
+    // printf("[%d] X %f\n", 1,circleVerticesX[1]);
+    // printf("[%d] Y %f\n", 1,circleVerticesY[1]);
+    // printf("[%d] Z %f\n", 1,circleVerticesZ[1]);
     
-    GLfloat* allCircleVertices = (GLfloat*) malloc (( numberOfVertices ) * 3);
+    GLfloat* allCircleVertices = (GLfloat*) malloc (( numberOfVertices ) * 9);
     
-    printf("YOI 2\n");
     int j = 1;
     for (long int i = 0; i < numberOfVertices; i++ )
     {
-    	printf("YOI 3 %ld\n", i);
+    	allCircleVertices[(i*9)-9] = circleVerticesX[0];
+    	allCircleVertices[(i*9)-8] = circleVerticesY[0];
+    	allCircleVertices[(i*9)-7] = circleVerticesZ[0];
 
-        if ((i * 3) % 9 == 0) {
-			allCircleVertices[i * 3] = circleVerticesX[0];
-        	allCircleVertices[( i * 3 ) + 1] = circleVerticesY[0];
-        	allCircleVertices[( i * 3 ) + 2] = circleVerticesZ[0];    
-        	if (i != 0) {
-        		j++;
-        	} else {
-        		j--;
-        	}   	
-        } else {
-        	allCircleVertices[i * 3] = circleVerticesX[j];
-	        allCircleVertices[( i * 3 ) + 1] = circleVerticesY[j];
-	        allCircleVertices[( i * 3 ) + 2] = circleVerticesZ[j];
-	        j++;
-        }
+    	allCircleVertices[(i*9)-6] = circleVerticesX[i];
+    	allCircleVertices[(i*9)-5] = circleVerticesY[i];
+    	allCircleVertices[(i*9)-4] = circleVerticesZ[i];
+
+    	allCircleVertices[(i*9)-3] = circleVerticesX[i+1];
+    	allCircleVertices[(i*9)-2] = circleVerticesY[i+1];
+    	allCircleVertices[(i*9)-1] = circleVerticesZ[i+1];
     }
-    printf("YOI 4\n");
+
+    allCircleVertices[(numberOfSides*9)-9] = circleVerticesX[0];
+	allCircleVertices[(numberOfSides*9)-8] = circleVerticesY[0];
+	allCircleVertices[(numberOfSides*9)-7] = circleVerticesZ[0];
+
+	allCircleVertices[(numberOfSides*9)-6] = circleVerticesX[numberOfSides];
+	allCircleVertices[(numberOfSides*9)-5] = circleVerticesY[numberOfSides];
+	allCircleVertices[(numberOfSides*9)-4] = circleVerticesZ[numberOfSides];
+
+	allCircleVertices[(numberOfSides*9)-3] = circleVerticesX[1];
+	allCircleVertices[(numberOfSides*9)-2] = circleVerticesY[1];
+	allCircleVertices[(numberOfSides*9)-1] = circleVerticesZ[1];
 
     return allCircleVertices;
     
