@@ -12,7 +12,7 @@ using namespace glm;
 GLFWwindow* window;
 
 void initGLFW();
-GLfloat* drawCircle( GLfloat x, GLfloat y, GLfloat z, GLfloat radius, GLint numberOfSides );
+GLfloat* drawCircle( GLfloat x, GLfloat y, GLfloat z, GLfloat radius, GLint numberOfSides, int side );
 GLfloat* drawCylinder( GLfloat x, GLfloat y, GLfloat z, GLfloat radius, GLfloat height, GLint numberOfSides );
 void appendArray(GLfloat* array1, int sizeArray1, GLfloat* array2, int sizeArray2, GLfloat* arrayResult);
 
@@ -45,11 +45,7 @@ int main(void)
 
 	// Our vertices. Tree consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
 	// A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
-	int sides = 100;
-	GLfloat* vertex = drawCircle(0.0f, 0.0f, 0.0f, 1.0f, sides);
-
-	// GLfloat* hasilAppend;
-	// hasilAppend = (GLfloat*) malloc ((18 + 18) * sizeof(GLfloat));
+	
 	// for (int i = 0; i < 360; i++) {
 	// 	printf("%f \n", vertex[i]);
 	// }
@@ -364,12 +360,17 @@ int main(void)
 		// 2.0f,0.0f,0.0f,
 	};
 
-	// appendArray(vertex, 18, _vertex, 18, hasilAppend);
+	int sides = 8;
+	GLfloat* vertex1 = drawCircle(0.0f, 0.0f, 0.0f, 1.0f, sides, -1);
+	GLfloat* vertex = drawCircle(1.0f, -0.8f, 0.6f, 0.3f, sides, -1);
 
-	// // GLfloat* trybro = drawCircle(2.0f, 0.0f, 0.0f, 2.0f, 360);
-	// for (int i = 0; i < 36; i++) {
-	// 	printf("[%d]. %f\n", i, hasilAppend[i]);
-	// }
+	// GLfloat* vertex = (GLfloat*) malloc (( sides + 2 ) * 9 * 2 * sizeof(GLfloat));
+	// appendArray(vertex2, (sides + 2) * 9, vertex1, (sides + 2) * 9, vertex);
+
+	// // // // GLfloat* trybro = drawCircle(2.0f, 0.0f, 0.0f, 2.0f, 360);
+	for (int i = 0; i < (sides + 2) * 9 ; i++) {
+		printf("[%d]. %f\n", i, vertex[i]);
+	}
 
 	GLfloat color[] = {
 		// front
@@ -544,7 +545,7 @@ int main(void)
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
 		// Draw the triangle !
-		glDrawArrays(GL_TRIANGLES, 0, (sides + 2) * 9); // 6 faces, 2 trianges, 3 vertices, start from 0
+		glDrawArrays(GL_TRIANGLES, 0, (sides + 2) * 9 * 4); // 6 faces, 2 trianges, 3 vertices, start from 0
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
@@ -611,7 +612,7 @@ void initGLFW() {
 	glfwSetCursorPos(window, 1024 / 2, 768 / 2);
 }
 
-GLfloat* drawCircle( GLfloat x, GLfloat y, GLfloat z, GLfloat radius, GLint numberOfSides )
+GLfloat* drawCircle( GLfloat x, GLfloat y, GLfloat z, GLfloat radius, GLint numberOfSides, int side )
 {
     int numberOfVertices = numberOfSides + 2;
     
@@ -629,8 +630,15 @@ GLfloat* drawCircle( GLfloat x, GLfloat y, GLfloat z, GLfloat radius, GLint numb
     for (long int i = 1; i <= numberOfVertices; i++ )
     {
     	circleVerticesX[i] = x;
-        circleVerticesY[i] = y + ( radius * cos( i * twicePi / numberOfSides ) );
-        circleVerticesZ[i] = z + ( radius * sin( i *  twicePi / numberOfSides ) );
+
+    	if (side == 1) {
+    		circleVerticesY[i] = y + ( radius * cos( i * twicePi / numberOfSides ) );
+       		circleVerticesZ[i] = z + ( radius * sin( i *  twicePi / numberOfSides ) );
+    	} else {
+    		circleVerticesY[i] = y + ( radius * sin( i * twicePi / numberOfSides ) );
+        	circleVerticesZ[i] = z + ( radius * cos( i *  twicePi / numberOfSides ) );
+    	}
+        
         // printf("Circle Vertice %ld X: %f\n", i, circleVerticesX[i]);
         // printf("Circle Vertice %ld Y: %f\n", i, circleVerticesY[i]);
         // printf("Circle Vertice %ld Z: %f\n", i, circleVerticesZ[i]);
